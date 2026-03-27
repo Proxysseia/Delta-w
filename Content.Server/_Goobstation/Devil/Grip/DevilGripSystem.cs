@@ -44,7 +44,7 @@ public sealed class DevilGripSystem : EntitySystem
         if (!args.CanReach
             || args.Target is not { } target
             || args.Target == args.User
-            || _whitelist.IsBlacklistPass(ent.Comp.Blacklist, target)
+            || _whitelist.IsWhitelistPass(ent.Comp.Blacklist, target)
             || !TryComp<DevilComponent>(args.User, out var devilComp))
             return;
 
@@ -61,7 +61,7 @@ public sealed class DevilGripSystem : EntitySystem
 
         if (TryComp(target, out StatusEffectsComponent? status))
         {
-            _ = _stun.TryKnockdown(target, ent.Comp.KnockdownTime, true, status) || _stun.TryStun(target, ent.Comp.KnockdownTime, true, status);
+            _ = _stun.TryKnockdown(target, ent.Comp.KnockdownTime, true) || _stun.TryAddStunDuration(target, ent.Comp.KnockdownTime);
             _stamina.TakeStaminaDamage(target, ent.Comp.StaminaDamage);
             _language.DoRatvarian(target, ent.Comp.SpeechTime, true, status);
         }

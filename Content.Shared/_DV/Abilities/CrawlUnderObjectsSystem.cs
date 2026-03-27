@@ -122,7 +122,10 @@ public sealed class CrawlUnderObjectsSystem : EntitySystem
     /// </summary>
     public bool TrySetEnabled(Entity<CrawlUnderObjectsComponent> ent, bool enabled)
     {
-        if (ent.Comp.Enabled == enabled || IsOnCollidingTile(ent) || _standing.IsDown(ent))
+        if (!TryComp<StandingStateComponent>(ent, out var standing))
+            return false;
+
+        if (ent.Comp.Enabled == enabled || IsOnCollidingTile(ent) || _standing.IsDown((ent, standing)))
             return false;
 
         if (TryComp<ClimbingComponent>(ent, out var climbing) && climbing.IsClimbing)
@@ -144,6 +147,8 @@ public sealed class CrawlUnderObjectsSystem : EntitySystem
         _appearance.SetData(ent, SneakingVisuals.Sneaking, enabled);
 
         _moveSpeed.RefreshMovementSpeedModifiers(ent);
+
+        _actions.SetToggled(ent.Comp.ToggleHideAction, enabled); // L5
 
         var ev = new CrawlingUpdatedEvent(enabled, ent.Comp);
         RaiseLocalEvent(ent, ref ev);

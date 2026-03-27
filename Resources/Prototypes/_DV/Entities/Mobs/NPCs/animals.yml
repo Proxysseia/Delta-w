@@ -185,7 +185,6 @@
   - type: Vocal
     sounds:
       Unsexed: MobDog
-  - type: LayingDown
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
@@ -378,7 +377,10 @@
     damageContainer: Biological
     damageModifierSet: Moth
   - type: Bloodstream
-    bloodReagent: InsectBlood
+    bloodReagents:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 1
   - type: Respirator
     damage:
       types:

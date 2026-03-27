@@ -67,7 +67,10 @@
   - type: Stamina
     critThreshold: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
+    bloodReagents:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 1
     bloodMaxVolume: 650
   - type: MeleeWeapon
     altDisarm: false
@@ -126,6 +129,8 @@
     chance: -2
   - type: Psionic #Nyano - Summary: makes psionic by default.
     removable: false
+  - type: NightVision #Delta-v - Added nightvision
+    color: "#808080"
 
 - type: entity
   name: praetorian
@@ -420,7 +425,8 @@
       task: SimpleHostileCompound
   - type: NpcFactionMember
     factions:
-    - SimpleHostile # DeltaV - Was Xeno
+    - Xeno
+    - SimpleHostile
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -519,7 +525,10 @@
   - type: Stamina
     critThreshold: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
+    bloodReagents:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 1
     bloodMaxVolume: 300
   - type: MeleeWeapon
     altDisarm: false

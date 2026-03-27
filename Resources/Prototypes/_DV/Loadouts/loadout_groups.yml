@@ -259,6 +259,7 @@
   minLimit: 0
   loadouts:
   - CorpsmanBeret
+  - BrigMedicalBeret
 
 - type: loadoutGroup
   id: BrigMedicNeck
@@ -283,9 +284,26 @@
   id: BrigMedicOuterClothing
   name: loadout-group-brig-medic-outerclothing
   loadouts:
+  - LongcoatBrigmedic
   - StasecWinterCoatCorpsman
   - PlateCarrier
   - DuraVest
+  - ArmorVestSlim
+
+- type: loadoutGroup
+  id: CorpsmanEyewear
+  name: loadout-group-corpsman-eyewear
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CorpsmanGlasses
+  - PrescriptionCorpsmanGlasses
+  - MedicalHud
+  - MedicalEyePatchHud
+  - PrescriptionMedHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: BrigMedicBack
@@ -333,6 +351,7 @@
   - SecurityFirearmWeaponPistolSLP57
   - SecurityFirearmWeaponPistolMk58
   - SecurityFirearmWeaponDisabler
+  - SecurityFirearmTruncheon
 
 - type: loadoutGroup
   id: SecurityRevolverFirearm
@@ -343,6 +362,7 @@
   - SecurityRevolverInspector
   - SecurityFirearmWeaponRevolverFitz
   - SecurityRevolverWeaponRevolverLucky
+  - SecurityFirearmTruncheon
 
 - type: loadoutGroup
   id: SecurityFirearmAmmo
@@ -379,6 +399,7 @@
   - SecurityRevolverWeaponRevolverLucky
   - SecurityFirearmWeaponRevolverDeckard
   - SecurityFirearmWeaponRevolverK38Master
+  - SecurityFirearmTruncheon
 
 - type: loadoutGroup
   id: SecurityAllAmmo
@@ -392,6 +413,31 @@
   - SecurityFirearmSpeedLoaderMagnum
   - SecurityFirearmSpeedLoaderSpecialRubber
   - SecurityFirearmSpeedLoaderSpecial
+
+## Security Gloves
+- type: loadoutGroup
+  id: SecurityGloves
+  name: loadout-group-security-gloves
+  minLimit: 0
+  loadouts:
+  - SecurityClothingHandsGlovesColorBlack
+  - SecurityClothingHandsGlovesFingerless
+
+## Security Glasses
+- type: loadoutGroup
+  id: SecurityEyewear
+  name: loadout-group-security-eyewear
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityGlasses
+  - PrescriptionSecurityGlasses
+  - SecurityHud
+  - SecurityEyePatchHud
+  - PrescriptionSecurityHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 ## Security Officer
 - type: loadoutGroup
@@ -410,7 +456,9 @@
   - PlateCarrier
   - DuraVest
   - StasecSweater
+  - LongcoatSecurity
   - StasecWinterCoat
+  - ArmorVestSlim
 
 ## Warden
 - type: loadoutGroup
@@ -419,7 +467,9 @@
   loadouts:
   - PlateCarrier
   - DuraVest
+  - WardenLongcoat
   - StasecWinterCoatWarden
+  - ArmorVestSlim
 
 ## Head of Security
 - type: loadoutGroup
@@ -428,8 +478,10 @@
   loadouts:
   - PlateCarrier
   - DuraVest
+  - HeadofSecurityLongcoat
   - StasecWinterCoatHoS
   - HeadOfSecurityTrenchcoat
+  - ArmorVestSlim
 
 ## Detective
 - type: loadoutGroup
@@ -449,10 +501,12 @@
   id: DetectiveOuterClothingDeltaV
   name: loadout-group-detective-outerclothing
   loadouts:
+  - LongcoatSecurity
   - StasecWinterCoatDet
   - PlateCarrier
   - DuraVest
   - DetPlatedCoat
+  - ArmorVestSlim
 
 # Medical
 ## Psychologist
@@ -761,6 +815,18 @@
   - WhiteShoes
   - ScienceWinterBoots
 
+- type: loadoutGroup
+  id: RoboticistGlasses
+  name: loadout-group-roboticist-glasses
+  minLimit: 0
+  loadouts:
+  - ClothingEyesHudDiagnostic
+  - ClothingEyesPrescriptionDiagHud
+  - ClothingEyesEyepatchHudDiag
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+
 # Command
 ## Captain
 - type: loadoutGroup
@@ -926,3 +992,19 @@
   hidden: true
   loadouts:
   - EmergencyIPCBox
+
+# ERT
+- type: loadoutGroup
+  id: GroupEVATankERT
+  name: loadout-group-EVA-tank
+  hidden: true
+  loadouts:
+  - LoadoutEmergencyOxygenExtendedERT
+  - LoadoutEmergencyNitrogenExtendedERT
+  - LoadoutEmergencyWaterVaporExtendedERT
+
+- type: roleLoadout
+  id: RoleSurvivalERT
+  groups:
+  - GroupEVATankERT
+  - SurvivalExtended
